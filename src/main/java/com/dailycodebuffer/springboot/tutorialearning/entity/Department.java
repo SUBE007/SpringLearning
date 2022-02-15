@@ -1,8 +1,5 @@
 package com.dailycodebuffer.springboot.tutorialearning.entity;
 
-import net.bytebuddy.dynamic.loading.InjectionClassLoader;
-import org.springframework.boot.autoconfigure.web.WebProperties;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,7 +12,7 @@ public class Department {
 
     private Long   departmentId;
     private String departmentName;
-    private String getDepartmentAddress;
+    private String departmentAddress;
     private String departmentCode;
 
     public Long getDepartmentId() {
@@ -34,12 +31,12 @@ public class Department {
         this.departmentName = departmentName;
     }
 
-    public String getGetDepartmentAddress() {
-        return getDepartmentAddress;
+    public String getDepartmentAddress() {
+        return departmentAddress;
     }
 
-    public void setGetDepartmentAddress(String getDepartmentAddress) {
-        this.getDepartmentAddress = getDepartmentAddress;
+    public void setDepartmentAddress(String departmentAddress) {
+        this.departmentAddress = departmentAddress;
     }
 
     public String getDepartmentCode() {
@@ -53,7 +50,7 @@ public class Department {
     public Department(Long departmentId, String departmentName, String getDepartmentAddress, String departmentCode) {
         this.departmentId = departmentId;
         this.departmentName = departmentName;
-        this.getDepartmentAddress = getDepartmentAddress;
+        this.departmentAddress = getDepartmentAddress;
         this.departmentCode = departmentCode;
     }
 
@@ -65,7 +62,7 @@ public class Department {
         return "Department{" +
                 "departmentId=" + departmentId +
                 ", departmentName='" + departmentName + '\'' +
-                ", getDepartmentAddress='" + getDepartmentAddress + '\'' +
+                ", getDepartmentAddress='" + departmentAddress + '\'' +
                 ", departmentCode='" + departmentCode + '\'' +
                 '}';
     }
