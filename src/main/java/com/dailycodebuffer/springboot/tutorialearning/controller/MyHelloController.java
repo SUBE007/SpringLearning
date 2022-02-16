@@ -1,18 +1,20 @@
 package com.dailycodebuffer.springboot.tutorialearning.controller;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-public class Controller {
+public class MyHelloController {
+
+    @Value("${welcome.message}")
+    private String welcomeMessage;
 
     //@RequestMapping(value = "/",method = RequestMethod.GET)
-    @GetMapping("/")
+    @GetMapping("/") //default url File
     public String helloWorld(){
-        return "Welcome to Learning World + +++ +++ ";
+        return welcomeMessage;
     }
 
 }
