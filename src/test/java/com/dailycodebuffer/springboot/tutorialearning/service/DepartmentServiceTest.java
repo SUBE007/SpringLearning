@@ -3,6 +3,7 @@ package com.dailycodebuffer.springboot.tutorialearning.service;
 import com.dailycodebuffer.springboot.tutorialearning.entity.Department;
 import com.dailycodebuffer.springboot.tutorialearning.repository.DepartmentRepository;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,6 @@ class DepartmentServiceTest {
     @BeforeEach
     void setUp() {
 
-       // Department department= ...don't use this way
         Department department=
                 Department.builder()
                         .departmentName("IT")
@@ -36,10 +36,13 @@ class DepartmentServiceTest {
     }
 
     @Test
+    @DisplayName("Get data based on the valid department name")
     public void whenValidDepartmentName_thenDepartmentShouldFound(){
         String departmentName="IT";
         Department found=departmentService.fetchDepartmentByName(departmentName);
 
         assertEquals(departmentName,found.getDepartmentName());
     }
+
+
 }
