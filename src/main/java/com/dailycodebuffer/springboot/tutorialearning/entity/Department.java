@@ -16,7 +16,8 @@ public class Department {
     private Long   departmentId;
 
     @NotBlank(message = "Please enter Department name")
-    @Length(max = 5 ,min = 1)
+
+    /*  @Length(max = 5 ,min = 1)
     @Size(max = 10,min = 0)
     @Email
     @Positive
@@ -26,7 +27,8 @@ public class Department {
     @Future
     @FutureOrPresent
     @Past
-    @PastOrPresent
+    @PastOrPresent*/
+
     private String departmentName;
     private String departmentAddress;
     private String departmentCode;
