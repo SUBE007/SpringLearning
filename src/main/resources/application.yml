@@ -1,0 +1,32 @@
+server:
+  port: '8082'
+
+#MySQL database configuration properties
+
+  spring:
+    datasource:
+      driver-class-name: com.mysql.jdbc.Driver
+      username: root
+      url: jdbc:mysql://localhost:3306/springtutorial
+      password: sube
+    jpa:
+      hibernate:
+        ddl-auto: update
+      show-sql: 'true'
+
+welcome:
+  message: 'Welcome to SpringBoot Learning World + +++ +++ '
+
+
+#H2 database configuration properties
+#spring:
+#  h2:
+#    console:
+#      enabled: 'true'
+#  datasource:
+#    username: sa
+#    url: jdbc:h2:mem:testdb
+#    driverClassName: org.h2.Driver
+#    password: password
+#  jpa:
+#    database-platform: org.hibernate.dialect.H2Dialect
