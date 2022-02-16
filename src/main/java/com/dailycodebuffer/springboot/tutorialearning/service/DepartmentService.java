@@ -1,6 +1,7 @@
 package com.dailycodebuffer.springboot.tutorialearning.service;
 
 import com.dailycodebuffer.springboot.tutorialearning.entity.Department;
+import com.dailycodebuffer.springboot.tutorialearning.exceptionhandling.DepartmentNotFoundException;
 
 import java.util.List;
 
@@ -10,7 +11,7 @@ public interface DepartmentService {
 
     public List<Department> fetchDepartmentList();
 
-    public Department fetchDepartmentById(Long departmentId);
+    public Department fetchDepartmentById(Long departmentId) throws DepartmentNotFoundException;
 
     public void deleteDepartmentById(Long departmentId);
 

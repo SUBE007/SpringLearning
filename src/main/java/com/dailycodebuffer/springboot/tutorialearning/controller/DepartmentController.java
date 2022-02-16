@@ -1,6 +1,7 @@
 package com.dailycodebuffer.springboot.tutorialearning.controller;
 
 import com.dailycodebuffer.springboot.tutorialearning.entity.Department;
+import com.dailycodebuffer.springboot.tutorialearning.exceptionhandling.DepartmentNotFoundException;
 import com.dailycodebuffer.springboot.tutorialearning.service.DepartmentService;
 import com.dailycodebuffer.springboot.tutorialearning.service.DepartmentServiceImplementation;
 import org.slf4j.Logger;
@@ -33,7 +34,7 @@ public class DepartmentController {
     }
 
     @GetMapping("/departments/{id}")
-    public Department departmentById(@PathVariable("id") Long departmentId){
+    public Department departmentById(@PathVariable("id") Long departmentId) throws DepartmentNotFoundException {
         LOGGER.info("Inside fetchDeparmentList of DepartmentController:");
         return departmentService.fetchDepartmentById(departmentId);
 

@@ -26,18 +26,6 @@ public class Department {
 
     @NotBlank(message = "Please enter Department name")
 
-    /*  @Length(max = 5 ,min = 1)
-    @Size(max = 10,min = 0)
-    @Email
-    @Positive
-    @Negative
-    @PositiveOrZero
-    @NegativeOrZero
-    @Future
-    @FutureOrPresent
-    @Past
-    @PastOrPresent*/
-
     private String departmentName;
     private String departmentAddress;
     private String departmentCode;
