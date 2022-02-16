@@ -1,6 +1,7 @@
 package com.dailycodebuffer.springboot.tutorialearning.controller;
 
 import com.dailycodebuffer.springboot.tutorialearning.entity.Department;
+import com.dailycodebuffer.springboot.tutorialearning.exceptionhandling.DepartmentNotFoundException;
 import com.dailycodebuffer.springboot.tutorialearning.service.DepartmentService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -65,6 +66,14 @@ class DepartmentControllerTest {
     }
 
     @Test
-    void fetchDepartmentById() {
+    void fetchDepartmentById() throws Exception {
+        Mockito.when(departmentService.fetchDepartmentById(1l))
+                .thenReturn(department);
+
+        mockMvc.perform(get("/departments/1")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.departmentName").value(department.getDepartmentName()));
+
     }
 }
