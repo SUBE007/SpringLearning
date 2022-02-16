@@ -14,6 +14,8 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @WebMvcTest(DepartmentController.class)
 class DepartmentControllerTest {
@@ -43,7 +45,7 @@ class DepartmentControllerTest {
     void saveDepartment() throws Exception {
 
        Department inputDepartment=Department.builder()
-                .departmentAddress("HYD")
+                .departmentAddress("HYDERABAD")
                 .departmentCode("IT-86")
                 .departmentName("IT")
                 .build();
@@ -51,7 +53,7 @@ class DepartmentControllerTest {
        Mockito.when(departmentService.saveDepartment(inputDepartment))
                .thenReturn(department);
 
-       mockMvc.perform(MockMvcRequestBuilders.post("/departments")
+       mockMvc.perform(post("/departments") //added on Demand Static method
                .contentType(MediaType.APPLICATION_JSON)
                .content("{\n" +
                        "     \"departmentName\":\"IT\",\n" +
@@ -59,7 +61,7 @@ class DepartmentControllerTest {
                        "    \"departmentCode\":\"IT-69\"\n" +
                        "\n" +
                        "}"))
-               .andExpect(MockMvcResultMatchers.status().isOk());
+               .andExpect(status().isOk());
     }
 
     @Test
