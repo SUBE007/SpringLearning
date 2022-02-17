@@ -16,38 +16,12 @@ server:
 welcome:
   message: 'Welcome to SpringBoot Learning World + +++ +++ '
 
----
-
-spring:
-  profile: qa
-  datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    username: root
-    url: jdbc:mysql://localhost:3306/springtutorial-qa
-    password: sube
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: 'true'
-
-welcome:
-  message: 'Welcome to SpringBoot Learning World + +++ +++ '
-
----
-spring:
-  profile: prod
-  datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    username: root
-    url: jdbc:mysql://localhost:3306/springtutorial-prod
-    password: sube
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: 'true'
-
-welcome:
-  message: 'Welcome to SpringBoot Learning World + +++ +++ '
+#enabling all the actuator end points
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 
 #H2 database configuration properties
 #spring:
