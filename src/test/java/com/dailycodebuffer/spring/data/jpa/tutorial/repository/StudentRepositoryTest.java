@@ -80,4 +80,14 @@ class StudentRepositoryTest {
         System.out.println("Student"+students);
 
     }
+
+    @Test
+    public void printStudentNameBasedFirstNameAndLastName(){
+
+
+        List<Student> students =studentRepository.findByFirstNameAndLastName("Subedar","Chaurasiya");
+        System.out.println("Student"+students);
+
+    }
+
 }
