@@ -1,12 +1,12 @@
 package com.dailycodebuffer.spring.data.jpa.tutorial.repository;
 
+import com.dailycodebuffer.spring.data.jpa.tutorial.entity.Guardian;
 import com.dailycodebuffer.spring.data.jpa.tutorial.entity.Student;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.List;
 
 @SpringBootTest
 //@DataJpaTest
@@ -21,11 +21,38 @@ class StudentRepositoryTest {
                 .emailId("sube@gmail.com")
                 .firstName("Subedar")
                 .lastName("Chaurasiya")
-                .guardianName("Dube")
-                .guardianEmail("dube@gmil.com")
-                .guardianMobile("0070070077")
+//                .name("Dube")
+//                .email("dube@gmil.com")
+//                .mobile("0070070077")
                 .build();
 
         studentRepository.save(student);
+    }
+
+    @Test
+    public void saveStudentWithGuardian() {
+        Guardian guardian= Guardian.builder()
+                .name("Dube")
+                .email("dube@gmil.com")
+                .mobile("0070070077")
+                .build();
+
+        Student student=Student.builder()
+                .firstName("Subedar")
+                .emailId("sube@gmail.com")
+                .lastName("Chaurasiya")
+                .guardian(guardian)
+                .build();
+
+        studentRepository.save(student);
+
+    }
+
+    @Test
+    public void printAllStudent(){
+        List<Student> studentList=
+                studentRepository.findAll();
+
+        System.out.println("StudentList: "+studentList);
     }
 }
