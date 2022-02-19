@@ -29,11 +29,13 @@ public class Teacher {
     private String firstName;
     private String lastName;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(
-            name = "teacher_id",//what ever you want to give the column name
-            referencedColumnName = "teacherId"
-    )
-    private Course courses;
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(
+//            name = "teacher_teacher_id",//what ever you want to give the column name
+//            referencedColumnName = "teacherId"
+//    )
+//    private Course courses;
+
+
 
 }

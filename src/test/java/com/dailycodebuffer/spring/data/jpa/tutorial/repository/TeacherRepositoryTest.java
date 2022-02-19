@@ -22,19 +22,19 @@ class TeacherRepositoryTest {
 
         Course courseDSA=Course.builder()
                 .title("DSA")
-                .credit(5)
+                .credit(7)
                 .build();
 
-        Course courseDLD=Course.builder()
-                .title("DLD")
-                .credit(6)
-                .build();
+//        Course courseDLD=Course.builder()
+//                .title("DLD")
+//                .credit(6)
+//                .build();
 
         Teacher teacher=Teacher.builder()
                 .firstName("ABID")
                 .lastName("KHAN")
-                .courses(courseDSA)
-                .courses(courseDLD)
+               // .courses(courseDSA)
+                //.courses(courseDLD)
                 .build();
 
     teacherRepository.save(teacher);
