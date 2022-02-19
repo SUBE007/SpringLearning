@@ -37,13 +37,16 @@ public interface StudentRepository extends JpaRepository<Student,Long> {
     //Native Named Param Query Example
     @Query(value = "select * from table_student s where s.email_address= :emailId",nativeQuery = true)
     Student getStudentByEmailAddressNativeNamedParam(@Param("emailId") String emailId);
-
+//update by Native Query method
     @Modifying
     @Transactional
     @Query(value = "update table_student set first_name =?1 where email_address =?2" ,nativeQuery = true)
     int updateStudentFirstNameByEmailId(String firstName,String emailId);
 
-
-
+//
+//    @Modifying
+//    @Transactional
+//    @Query(value = "delete from table_student where first_name =?1 where email_address =?2",nativeQuery = true)
+//    void deleteStudentNameByEmailId(String firstName,String emailId);
 
 }

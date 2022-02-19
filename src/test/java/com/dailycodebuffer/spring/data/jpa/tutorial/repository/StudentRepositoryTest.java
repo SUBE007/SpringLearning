@@ -126,4 +126,12 @@ class StudentRepositoryTest {
         studentRepository.updateStudentFirstNameByEmailId("Sardar Chaurasiya","sube@gmail.com");
 
     }
+
+    //@Test
+//    public void deleteStudentNameByEmailAddressNativeQueryMethodTest(){
+//        studentRepository.deleteStudentNameByEmailId("Subedar Chaurasiya ","mube@gmail.com");
+//    }
+
+
+
 }
