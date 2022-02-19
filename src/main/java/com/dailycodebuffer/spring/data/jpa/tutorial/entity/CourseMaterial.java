@@ -22,7 +22,10 @@ public class CourseMaterial {
     private String url;
     //********************Mapping one:one
     @OneToOne(cascade = CascadeType.ALL,
-    fetch = FetchType.LAZY)
+               fetch = FetchType.LAZY,
+             optional = false
+     )
+
     @JoinColumn(
             name = "course_id",
             referencedColumnName = "courseId"

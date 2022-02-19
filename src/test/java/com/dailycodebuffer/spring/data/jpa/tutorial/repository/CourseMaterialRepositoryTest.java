@@ -21,11 +21,11 @@ class CourseMaterialRepositoryTest {
 
         Course course= Course.builder()
                         .credit(7)
-                        .title("DSA")
+                        .title("reactjs")
                         .build();
 
         CourseMaterial courseMaterial=CourseMaterial.builder()
-                .url("www.google.com")
+                .url("www.googlegoglee.com")
                 .course(course)
                 .build();
 
