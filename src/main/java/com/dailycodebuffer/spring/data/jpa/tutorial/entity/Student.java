@@ -33,9 +33,7 @@ public class Student {
             nullable = false)
     private String emailId;
 
-//    private String guardianName;//do mapping with student class
-//    private String guardianEmail;
-//    private String guardianMobile;
+
     @Embedded
     private Guardian guardian;
 
