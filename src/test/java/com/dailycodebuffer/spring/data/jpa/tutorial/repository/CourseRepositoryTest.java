@@ -1,6 +1,7 @@
 package com.dailycodebuffer.spring.data.jpa.tutorial.repository;
 
 import com.dailycodebuffer.spring.data.jpa.tutorial.entity.Course;
+import com.dailycodebuffer.spring.data.jpa.tutorial.entity.Student;
 import com.dailycodebuffer.spring.data.jpa.tutorial.entity.Teacher;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -119,5 +120,30 @@ class CourseRepositoryTest {
                      .findByTitleContaining("D",firstPageWithTenRecords).getContent();
 
         System.out.println("Course: "+courses);
+    }
+
+    @Test
+    public void saveCourseWithStudentAndTeacherTestingForManyTOManyMapping(){
+
+        Teacher teacher=Teacher.builder()
+                .firstName("John")
+                .lastName("Shina")
+                .build();
+
+        Student student=Student.builder()
+                .firstName("Sunny")
+                .lastName("Li")
+                .emailId("chunnumunnu@gmail.com")
+                .build();
+
+        Course course=Course.builder()
+                .title("AI")
+                .credit(12)
+                .teacher(teacher)
+                .build();
+
+        course.addStudents(student);
+
+        courseRepository.save(course);
     }
 }
