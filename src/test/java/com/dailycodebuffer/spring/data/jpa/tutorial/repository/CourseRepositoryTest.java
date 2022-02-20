@@ -83,5 +83,30 @@ class CourseRepositoryTest {
 
     }
 
+   @Test
+    public void findAllWithSorting(){
 
+       Pageable sortByTitle=PageRequest.of(0,2,Sort.by("title"));
+
+       Pageable sortByCreditDesc=PageRequest.of(0,2,
+               Sort.by("credit").descending());
+
+       Pageable sortByCreditAndTitle=PageRequest.of(0,2,
+               Sort.by("title").descending()
+                       .and
+                               (Sort.by("credit").descending()));
+
+
+
+       List<Course> courses1=courseRepository.findAll(sortByTitle).getContent();
+       System.out.println("Courses: "+courses1);
+       System.out.println("-----------------------------------");
+
+       List<Course> courses2=courseRepository.findAll(sortByCreditDesc).getContent();
+       System.out.println("Courses: "+courses2);
+       System.out.println("-----------------------------------");
+
+       List<Course> courses3=courseRepository.findAll(sortByCreditAndTitle).getContent();
+       System.out.println("Courses: "+courses3);
+    }
 }
