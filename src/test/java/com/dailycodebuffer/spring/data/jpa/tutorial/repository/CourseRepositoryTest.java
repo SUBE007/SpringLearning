@@ -109,4 +109,15 @@ class CourseRepositoryTest {
        List<Course> courses3=courseRepository.findAll(sortByCreditAndTitle).getContent();
        System.out.println("Courses: "+courses3);
     }
+
+    @Test
+    public void printFindByTitleContaining(){
+        Pageable firstPageWithTenRecords=
+                PageRequest.of(0,10);
+
+        List<Course > courses=courseRepository
+                     .findByTitleContaining("D",firstPageWithTenRecords).getContent();
+
+        System.out.println("Course: "+courses);
+    }
 }
