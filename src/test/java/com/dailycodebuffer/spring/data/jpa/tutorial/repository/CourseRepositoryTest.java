@@ -12,8 +12,6 @@ import org.springframework.data.domain.Sort;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 @SpringBootTest
 class CourseRepositoryTest {
 
@@ -45,16 +43,11 @@ class CourseRepositoryTest {
     @Test
     public  void findAllPaginationWithTwoRecords(){
 
-        Pageable firstPageWithThreeRecord= PageRequest.of(0,3);
-
         Pageable secondPageWithTwoRecord = PageRequest.of(1,2);
-
         List<Course> courses=courseRepository.findAll(secondPageWithTwoRecord)
                 .getContent();
-
         long totalElement= courseRepository.findAll(secondPageWithTwoRecord)
-                        .getTotalElements();
-
+                .getTotalElements();
         long totalPages=courseRepository.findAll(secondPageWithTwoRecord)
                 .getTotalPages();
 
@@ -71,10 +64,8 @@ class CourseRepositoryTest {
 
         List<Course> courses=courseRepository.findAll(firstPageWithThreeRecord)
                 .getContent();
-
         long totalElement= courseRepository.findAll(firstPageWithThreeRecord)
                 .getTotalElements();
-
         long totalPages=courseRepository.findAll(firstPageWithThreeRecord)
                 .getTotalPages();
 
@@ -91,11 +82,10 @@ class CourseRepositoryTest {
 
        Pageable sortByCreditDesc=PageRequest.of(0,2,
                Sort.by("credit").descending());
-
        Pageable sortByCreditAndTitle=PageRequest.of(0,2,
                Sort.by("title").descending()
                        .and
-                               (Sort.by("credit").descending()));
+               (Sort.by("credit").descending()));
 
 
 
