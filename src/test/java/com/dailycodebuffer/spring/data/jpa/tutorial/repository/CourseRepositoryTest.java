@@ -5,6 +5,9 @@ import com.dailycodebuffer.spring.data.jpa.tutorial.entity.Teacher;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 
 import java.util.List;
 
@@ -37,4 +40,48 @@ class CourseRepositoryTest {
 
         courseRepository.save(course);
     }
+
+    @Test
+    public  void findAllPaginationWithTwoRecords(){
+
+        Pageable firstPageWithThreeRecord= PageRequest.of(0,3);
+
+        Pageable secondPageWithTwoRecord = PageRequest.of(1,2);
+
+        List<Course> courses=courseRepository.findAll(secondPageWithTwoRecord)
+                .getContent();
+
+        long totalElement= courseRepository.findAll(secondPageWithTwoRecord)
+                        .getTotalElements();
+
+        long totalPages=courseRepository.findAll(secondPageWithTwoRecord)
+                .getTotalPages();
+
+        System.out.println("Courses: " +courses);
+        System.out.println("Total Elements: " +totalElement);
+        System.out.println("Total Pages: " +totalPages);
+
+    }
+
+    @Test
+    public  void findAllPaginationWithThreeRecords(){
+
+        Pageable firstPageWithThreeRecord= PageRequest.of(0,3);
+
+        List<Course> courses=courseRepository.findAll(firstPageWithThreeRecord)
+                .getContent();
+
+        long totalElement= courseRepository.findAll(firstPageWithThreeRecord)
+                .getTotalElements();
+
+        long totalPages=courseRepository.findAll(firstPageWithThreeRecord)
+                .getTotalPages();
+
+        System.out.println("Courses: " +courses);
+        System.out.println("Total Elements: " +totalElement);
+        System.out.println("Total Pages: " +totalPages);
+
+    }
+
+
 }
